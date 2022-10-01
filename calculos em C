@@ -1,0 +1,60 @@
+//https://github.com/waldamoreira/LaSalle_Disciplina-Algoritmos.git//
+// Walda Rosemay Moreira - Gestão da Tecnologia da Informação - La Salle -
+// 202220693
+/*Adaptados das seguintes fontes:
+youtube.com/watch?v=CTegoZvvLcw;
+site = wagner.gaspar.com;
+site = elogicaefacil.blogspot.com;
+youtube.com/watch?v=sE6tid-8qXk&t=24s*/
+  
+#include <stdio.h> 
+#include <stdlib.h>
+#include <math.h> //biblioteca para cálculos//
+int main() {
+  int opcao, num1, num2;
+  float x, y; //para poder calcular raiz quadrada//
+
+  do {
+    printf("\n");
+    printf("Escolha um dos números abaixo:\n");
+    printf("\n1 - Soma\n2 - Subtracao\n3 - Multiplicacao\n4 - Divisao\n5 - RaizQuadrada\n0 - "
+           "Sair\n\n");
+    scanf("%d", &opcao);
+    if (opcao > 0 && opcao < 5) {
+      printf("Digite dois valores separados por um espaço: ");
+      scanf("%d%d", &num1, &num2);
+    }
+    switch (opcao) {  //utilizados 5 cases, 1 para cada operaçao//
+    case 0:
+      printf("saindo... \n");
+      break;
+    case 1:
+      printf("Soma: %d\n", num1 + num2);
+      break;
+    case 2:
+      printf("Subtracao: %d\n", num1 - num2);
+      break;
+    case 3:
+      printf("Multiplicacao: %d\n", num1 * num2);
+      break;
+    case 4:
+      while (num2 == 0) {
+        printf("Nao existe divisao por zero. \nDigite outro valor: ");
+        scanf("%d", &num2);
+      }
+      printf("Divisao: %0d\n", num1 / num2);
+      break;
+    case 5:  
+      printf("\nDigite um número para descobrir a raiz quadrada: \n");
+      scanf("%f", &x);
+      y = sqrt(x);
+      printf("\n\nA raiz quadrada de %0.f é: \n%f", x,y);
+      printf("\n\n");
+    
+      break;   //O uso do break evita testar as demais alternativas de forma desnecessária quando uma opção verdadeira já foi encontrada. O comando default exibe uma mensagem, caso nenhuma das alternativas anteriores seja verdadeira.//
+    Default:
+      printf("Opcao invalida.\nDigite outra opcao: ");
+    }
+  } while (opcao != 0);
+}
+
